@@ -1,0 +1,99 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee); /* Pink and violet shades */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.calculator-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); 
+    border-radius: 15px;
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease;
+    transition: transform 0.3s ease;
+    transform: scale(1);
+}
+
+.calculator-box:hover {
+    transform: scale(1.05);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input and button styling */
+input {
+    padding: 15px;          /* Maintain good padding */
+    font-size: 1.1em;      /* Font size */
+    width: calc(100% - 30px); /* Full width minus padding */
+    border: 2px solid #bfbfbf; /* Adding a border for visibility */
+    border-radius: 8px;    /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent */
+}
+
+/* Placeholder animation */
+input::placeholder {
+    color: #bfbfbf; /* Initial placeholder color */
+    animation: placeholderFade 2s ease infinite; /* Fading effect for the placeholder */
+    opacity: 1; /* Ensure opacity is set for visibility */
+}
+
+
+@keyframes placeholderFade {
+    0%, 100% {
+        color: #bfbfbf; 
+    }
+    50% {
+        color: #ffffff; 
+    }
+}
+
+.result {
+    font-size: 1.5em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 20px;
+}
+
+.result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.result.error {
+    color: #ff6b6b;
+}
+
+.result.success {
+    color: #28a745;
+}
+
+.result {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2); 
+}
